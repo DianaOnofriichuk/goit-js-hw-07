@@ -9,18 +9,11 @@ const markup = galleryItems
     </a>`,
   )
   .join('')
+
 galleryEl.insertAdjacentHTML('beforeend', markup)
-galleryEl.addEventListener(`click`, onImageClick)
 
-function onImageClick(event) {
-  event.preventDefault()
-  if (!event.target.classList.contains(`gallery__image`)) {
-    return
-  }
-
-  let gallery = new SimpleLightbox('.gallery a', {
-    captionsData: 'alt',
-    captionDelay: 250,
-  })
-  gallery.refresh()
-}
+let gallery = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+})
+gallery.refresh()
